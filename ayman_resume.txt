@@ -1,0 +1,103 @@
+Ayman Sayed +1 (346) 871 8119 ⋄ aym_s@outlook.com ⋄ aymanai.com ⋄
+Linkedin ⋄ Github ⋄ Washington DC
+
+Education
+
+Master’s of Science in Applied Machine Learning, University of Maryland
+College Park Relevant Courses : Principles of ML, Probability &
+Statistics, Principles of Data Science
+
+Bachelor’s in Computer Science, National Institute of Technology
+Rourkela Relevant Courses : Data Structures & Algorithms, OS, Software
+Engg., Cloud Computing, ML, AI
+
+Expected 2027
+
+2019 - 2023
+
+Experience
+
+Samsung Research Institute Bangalore Senior Software Developer, Platform
+Intelligence · Fine tuned Gauss AI model using QLoRA to detect
+unauthorized access and potential threat environments
+
+Bangalore, KA, India Feb – Aug 2025
+
+during interactions with sensitive applications.
+
+· Built Agentic AI workflow for SEAL (Smart Efficient App Lock) model to
+identify unauthorized access to device. · Developed out-of-box
+on-boarding service that seamlessly sync WiFi profiles and Samsung
+accounts on PC
+
+from Android devices during first-time PC startup.
+
+· Integrated Knox Matrix (KM) Windows on Samsung Cloud, Internet, and
+Notes for seamless end-to-end
+
+encrypted sync of data between Android and Windows devices.
+
+Software Developer, On Device AI · Developed Key Provisioning system
+providing hardware backed root of trust on Samsung PC’s and
+
+Nov 2023 – Feb 2025
+
+successfully commercialized it with 2 Million+ active users.
+
+· Engineered security validation of TPM, Secure Boot, Kernel DMA
+protection & Memory Integrity for Knox suiite
+
+of Windows Security.
+
+· Implemented REST handlers to facilitate server connections for Knox
+Matrix; improved code quality & stability
+
+of KM, achieving 35% performance increase, while maintaining the
+codebase by fixing bugs & resolving issues.
+
+· Built framework linking Trustchain service with Big Data server to
+stream event data & enable crash reporting.
+
+SDE Intern, Visual Intelligence · Developed app to analyze capabilities
+of multiple cameras of connected mobile devices. · Built a Flask
+dashboard that allows operations such as search by id or any of 400
+properties, display vendor
+
+May – Jul 2022
+
+tags, compare cameras across devices and also search their differences
+
+Projects
+
+Chart VLM | Python, PyTorch, Quantization, VLM, Multi-Modal Fine Tuning,
+LoRA, HuggingFace, Vision Encoder Developed & fine-tuned Vision Language
+Model (Qwen2-VL) using PEFT & Hugging Face TRL library on ChartQA
+dataset to answer questions based on images of charts, allowing apps for
+automated data analysis.
+
+ENSO Prediction using RL | Python, Gymnasium, Stable-Baselines-3, PPO,
+XRO model Conducted a research project under Dr. Maria Molina, designing
+& training a Reinforcement Learning agent with Stable‑Baselines3 & XRO
+model to induce multi‑year ENSO events, increasing control efficacy by
+48%. (Github)
+
+DeepRAG | Python, RAG, BGE-M3 embeddings & ReRanker, Qdrant search,
+DeepSeek CoT, pyPDF, FastAPI, NiceGUI Engineered end-to-end RAG pipeline
+with hybrid dense/sparse retrieval, Qdrant vector indexing,
+cross-encoder reranking, and DeepSeek chain-of-thought generation,
+served via FastAPI+NiceGUI full-stack app. (Github)
+
+Potato Disease Analyzer Tech | Python, Tensorfow, Keras, CNN, TF
+Serving, FastAPI, Android, Java, Google Cloud Website & Android App that
+identifies & classify disease in potato plant by analyzing image of
+leaves. (Github)
+
+Skills
+
+Programming App Frameworks Data Stack Machine Learning Technologies
+
+C, C++, Python, C#, Java, HTML, CSS, JS, Bash, Dart, PS1 UWP, .NET,
+Android Studio, WPF, NetBeans, Bootstrap, NodeJS, React Tableau, SQL,
+MongoDB, Numpy, Pandas, MatPlotLib, Plotly, Data Analytics Tensorfow,
+Pytorch, Keras, LangChain, LangGraph, LLM, RAG, NLP, CV Git, Docker,
+Jenkins, Jira, REST APIs, Linux
