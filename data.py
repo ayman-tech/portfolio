@@ -10,8 +10,8 @@ PROFILE = {
     "phone": "+1 (346) 871 8119",
     "email": "aym_s@outlook.com",
     "website": "https://aymanai.com",
-    "linkedin": "https://linkedin.com/in/aymansayed",
-    "github": "https://github.com/aymansayed",
+    "linkedin": "https://www.linkedin.com/in/ayman-sayed-b8ba80176/",
+    "github": "https://github.com/ayman-tech",
     "location": "Washington DC, USA",
 }
 
