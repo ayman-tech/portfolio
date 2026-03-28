@@ -60,9 +60,9 @@ def create_experience() -> None:
                     # Bullet points
                     with ui.column().classes("gap-2"):
                         for bullet in exp["bullets"]:
-                            with ui.row().classes("gap-3 items-start"):
-                                ui.icon("chevron_right", size="xs").classes(
-                                    "text-indigo-500 mt-0.5 shrink-0"
+                            with ui.row().classes("gap-2 items-start !flex-nowrap"):
+                                ui.label("▸").classes(
+                                    "text-indigo-500 mt-px shrink-0 text-sm"
                                 )
                                 ui.label(bullet).classes(
                                     "text-slate-600 dark:text-slate-300 "
