@@ -4,9 +4,9 @@ from nicegui import ui
 from components.shared import scroll_to
 
 NAV_ITEMS = [
+    ("projects", "Products"),
     ("experience", "Experience"),
     ("education", "Education"),
-    ("projects", "Projects"),
     ("skills", "Skills"),
 ]
 

@@ -71,9 +71,9 @@ def index():
 
     with ui.column().classes("w-full items-center !gap-0"):
         create_hero()
+        create_projects()
         create_experience()
         create_education()
-        create_projects()
         create_skills()
         create_footer()
 

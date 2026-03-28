@@ -10,8 +10,8 @@ PROFILE = {
     "phone": "+1 (346) 871 8119",
     "email": "aym_s@outlook.com",
     "website": "https://aymanai.com",
-    "linkedin": "https://linkedin.com/in/aymansayed",
-    "github": "https://github.com/aymansayed",
+    "linkedin": "https://www.linkedin.com/in/ayman-sayed-b8ba80176/",
+    "github": "https://github.com/ayman-tech",
     "location": "Washington DC, USA",
 }
 
@@ -81,10 +81,21 @@ EXPERIENCE = [
 
 PROJECTS = [
     {
+        "name": "DeepRAG",
+        "tech": ["Python", "RAG", "BGE-M3", "Qdrant", "DeepSeek", "FastAPI", "NiceGUI"],
+        "description": "Engineered end-to-end RAG pipeline with hybrid dense/sparse retrieval, Qdrant vector indexing, cross-encoder reranking, and DeepSeek chain-of-thought generation, served via FastAPI+NiceGUI.",
+        "icon": "psychology",
+        "status": "Live", # if live will show green gif
+        "product_link": "https://deeprag.aymanai.com",
+        "link": "https://github.com/ayman-tech/deep-rag",
+    },
+    {
         "name": "Chart VLM",
         "tech": ["Python", "PyTorch", "Quantization", "VLM", "LoRA", "HuggingFace"],
         "description": "Developed & fine-tuned Vision Language Model (Qwen2-VL) using PEFT & Hugging Face TRL library on ChartQA dataset to answer questions based on images of charts, enabling automated data analysis.",
         "icon": "bar_chart",
+        "status": "Pre-Deployment",
+        "product_link": None,
         "link": None,
     },
     {
@@ -92,21 +103,36 @@ PROJECTS = [
         "tech": ["Python", "Gymnasium", "Stable-Baselines-3", "PPO", "XRO Model"],
         "description": "Research project under Dr. Maria Molina, designing & training a Reinforcement Learning agent with Stable-Baselines3 & XRO model to induce multi-year ENSO events, increasing control efficacy by 48%.",
         "icon": "waves",
-        "link": "https://github.com",
+        "status": "Pre-Deployment",
+        "product_link": "https://github.com/ayman-tech/enso-rl",
+        "link": "https://github.com/ayman-tech/enso-rl",
     },
     {
-        "name": "DeepRAG",
-        "tech": ["Python", "RAG", "BGE-M3", "Qdrant", "DeepSeek", "FastAPI", "NiceGUI"],
-        "description": "Engineered end-to-end RAG pipeline with hybrid dense/sparse retrieval, Qdrant vector indexing, cross-encoder reranking, and DeepSeek chain-of-thought generation, served via FastAPI+NiceGUI.",
-        "icon": "psychology",
-        "link": "https://github.com",
+        "name": "Optimal Transport Knowledge Distillation",
+        "tech": ["LangGraph", "Python", "Groq", "StateGraph", "ReactAgent", "LangChain tools", "LangSmith"],
+        "description": "Developed a knowledge distillation framework using Sinkhorn Optimal Transport with a jointly optimized learnable cost matrix to efficiently compress vision models while preserving semantic class relationships.",
+        "icon": "code",
+        "status": "Pre-Deployment",
+        "product_link": "https://github.com/ayman-tech/sinkhorn-vision-kd",
+        "link": "https://github.com/ayman-tech/sinkhorn-vision-kd",
+    },
+    {
+        "name": "Tap Code",
+        "tech": ["LangGraph", "Python", "Groq", "StateGraph", "ReactAgent", "LangChain tools", "LangSmith"],
+        "description": "Agentic AI system that generates full-stack application code from input prompt.",
+        "icon": "code",
+        "status": "Pre-Deployment",
+        "product_link": "https://github.com/ayman-tech/tapcode",
+        "link": "https://github.com/ayman-tech/tapcode",
     },
     {
         "name": "Potato Disease Analyzer",
         "tech": ["Python", "TensorFlow", "Keras", "CNN", "FastAPI", "Android", "GCP"],
         "description": "Website & Android app that identifies & classifies disease in potato plants by analyzing images of leaves using CNN-based deep learning models.",
         "icon": "eco",
-        "link": "https://github.com",
+        "status": "Pre-Deployment",
+        "product_link": "https://github.com/ayman-tech/potato-disease-analyzer",
+        "link": "https://github.com/ayman-tech/potato-disease-analyzer",
     },
 ]
 
