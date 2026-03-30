@@ -44,6 +44,18 @@ EDUCATION = [
 
 EXPERIENCE = [
     {
+        "company": "University of Maryland, College Park",
+        "role": "Graduate Research Assistant, PARETO Group",
+        "location": "College Park, MD, USA",
+        "period": "Dec 2025 \u2013 Present",
+        "bullets": [
+            "Developed & trained a Reinforcement Learning agent on the XRO climate model to induce sustained ENSO events by controlling 9 coupled ocean–atmosphere modes with physics-based dynamics; discovered critical preconditions for multi-year El Niño/La Niña events through learned policy analysis.",
+            "Awarded NASA funding to build a conditional diffusion-based super-resolution pipeline that downscales coarse 2 km GOES satellite imagery to 30 m spatial resolution, enabling high-fidelity urban heat island analysis.",
+            "Extended DeepMind's GenCast diffusion model with gradient-based guidance for controllable tropical cyclone trajectory forecasting over 4-day horizons; designed a parallel ReadOut GNN decoder for binary storm classification from diffusion latents with dynamic class weighting for <1% positive class ratio.",
+            "Implemented inner latent optimization within DPM-Solver++ sampling using gradient clipping, selective spatial masking, and local affine warping for stable multi-step guided generation; built an ERA5-to-storm-mask data pipeline processing 0.25° global reanalysis data with variable-radius cyclone annotations.",
+        ],
+    },
+    {
         "company": "Samsung Research Institute Bangalore",
         "role": "Senior Software Developer, Platform Intelligence",
         "location": "Bangalore, KA, India",
