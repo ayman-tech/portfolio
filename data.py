@@ -93,11 +93,20 @@ EXPERIENCE = [
 
 PROJECTS = [
     {
+        "name": "Triage AI",
+        "tech": ["Python", "LangGraph", "OpenAI", "PostGres Vector", "ElevenLabs", "Twilio", "FastAPI", "PostGres SQL", "Jinja2", "Tesseract", "Docker", "Langsmith"],
+        "description": "Multi-agent AI system for automated Complaint Management using a supervisor-orchestrated Agentic workflow with specialist agents for classification, risk assessment, root cause analysis, and resolution. Integrated RAG with pgvector, OCR document processing, voice intake via Twilio + ElevenLabs , and a dual evaluation framework with LLM-as-judge and benchmark datasets.",
+        "icon": "support_agent",
+        "status": "Live", # if live will show green gif
+        "product_link": "https://triage.aymanai.com",
+        "link": "https://github.com/ayman-tech/Multi-Agent-Complaint-System",
+    },
+    {
         "name": "DeepRAG",
         "tech": ["Python", "RAG", "BGE-M3", "Qdrant", "DeepSeek", "FastAPI", "NiceGUI"],
         "description": "Engineered end-to-end RAG pipeline with hybrid dense/sparse retrieval, Qdrant vector indexing, cross-encoder reranking, and DeepSeek chain-of-thought generation, served via FastAPI+NiceGUI.",
         "icon": "psychology",
-        "status": "Live", # if live will show green gif
+        "status": "Live",
         "product_link": "https://deeprag.aymanai.com",
         "link": "https://github.com/ayman-tech/deep-rag",
     },
