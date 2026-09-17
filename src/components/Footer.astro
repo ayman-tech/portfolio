@@ -1,0 +1,15 @@
+---
+import { PROFILE } from '../data/portfolio';
+import Icon from './Icon.astro';
+---
+<footer class="container site-footer">
+  <div class="contact-section">
+    <div><h2>Get In Touch</h2><p>Let’s connect and discuss opportunities.</p></div>
+    <div class="footer-links">
+      <a href={`mailto:${PROFILE.email}`}><Icon name="mail" size={19} />{PROFILE.email}</a>
+      <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" size={19} />LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      <a href={PROFILE.github} target="_blank" rel="noopener noreferrer"><Icon name="github" size={19} />GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+  <div class="copyright"><p>© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</p><a href="#about">Back to top <Icon name="arrow" size={15} /></a></div>
+</footer>

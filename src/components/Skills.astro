@@ -1,0 +1,9 @@
+---
+import { SKILLS } from '../data/portfolio';
+---
+<section id="skills" class="section" aria-labelledby="skills-title">
+  <div class="section-heading"><h2 id="skills-title">Skills</h2><p>Technologies and tools I work with.</p></div>
+  <dl class="skills-list">
+    {Object.entries(SKILLS).map(([category, { items }]) => <div class="skill-row"><dt>{category}</dt><dd><ul class="tags">{items.map(skill => <li>{skill}</li>)}</ul></dd></div>)}
+  </dl>
+</section>

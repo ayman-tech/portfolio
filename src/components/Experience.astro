@@ -1,0 +1,17 @@
+---
+import { EXPERIENCE } from '../data/portfolio';
+---
+<section id="experience" class="section" aria-labelledby="experience-title">
+  <div class="section-heading"><h2 id="experience-title">Experience</h2><p>My professional experience in research and industry.</p></div>
+  <div class="timeline">
+    {EXPERIENCE.map(experience => <article class="timeline-entry">
+      <p class="entry-date">{experience.period}</p>
+      <div class="entry-content">
+        <h3>{experience.company}</h3>
+        <p class="entry-role">{experience.role}</p>
+        <p class="entry-location">{experience.location}</p>
+        <ul class="experience-bullets">{experience.bullets.map(bullet => <li>{bullet}</li>)}</ul>
+      </div>
+    </article>)}
+  </div>
+</section>

@@ -1,0 +1,60 @@
+---
+import Icon from './Icon.astro';
+const links = ['Updates', 'Projects', 'Experience', 'Education', 'Skills'];
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="#about" aria-label="Ayman Sayed — back to top">AS</a>
+    <nav id="site-navigation" aria-label="Main navigation">
+      {links.map(label => <a href={`#${label.toLowerCase()}`}>{label}</a>)}
+    </nav>
+    <div class="header-controls">
+      <button class="icon-button theme-toggle" type="button" aria-label="Switch to light mode" hidden>
+        <Icon name="sun" class="sun-icon" /><Icon name="moon" class="moon-icon" />
+      </button>
+      <button class="icon-button menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation" hidden>
+        <Icon name="menu" class="menu-icon" /><Icon name="close" class="close-icon" />
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+  const themeButton = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#site-navigation');
+  const syncThemeLabel = () => themeButton?.setAttribute('aria-label',
+    `Switch to ${document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'} mode`);
+  if (themeButton) {
+    themeButton.hidden = false;
+    syncThemeLabel();
+    themeButton.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = theme;
+      try { localStorage.setItem('portfolio-theme', theme); } catch { /* Storage can be disabled. */ }
+      syncThemeLabel();
+    });
+  }
+  if (menuButton && nav) {
+    menuButton.hidden = false;
+    document.documentElement.classList.add('navigation-ready');
+    const setOpen = (open: boolean) => {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      nav.classList.toggle('is-open', open);
+    };
+    menuButton.addEventListener('click', () => setOpen(menuButton.getAttribute('aria-expanded') !== 'true'));
+    nav.addEventListener('click', event => {
+      if ((event.target as HTMLElement).closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        menuButton.focus();
+      }
+    });
+    document.addEventListener('click', event => {
+      if (!(event.target as HTMLElement).closest('.site-header')) setOpen(false);
+    });
+    matchMedia('(min-width: 761px)').addEventListener('change', () => setOpen(false));
+  }
+</script>

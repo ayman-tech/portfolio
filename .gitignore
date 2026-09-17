@@ -1,13 +1,10 @@
-# my defined
-uv.lock
-
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
+node_modules/
 dist/
-wheels/
-*.egg-info
-
-# Virtual environments
-.venv
+.astro/
+.DS_Store
+.env
+.env.*
+!.env.example
+npm-debug.log*
+__pycache__/
+.venv/

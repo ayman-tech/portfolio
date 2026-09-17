@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/profile.png';
+import { PROFILE } from '../data/portfolio';
+import Icon from './Icon.astro';
+---
+<section id="about" class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">{PROFILE.name}</h1>
+    <p class="hero-role">{PROFILE.title}</p>
+    <p class="hero-tagline">{PROFILE.tagline}</p>
+    <p class="location"><Icon name="pin" size={17} />{PROFILE.location}</p>
+    <div class="hero-links">
+      <a class="button" href={`mailto:${PROFILE.email}`}>Get In Touch <Icon name="arrow" size={18} /></a>
+      <a class="social-link" href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" />LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      <a class="social-link" href={PROFILE.github} target="_blank" rel="noopener noreferrer"><Icon name="github" />GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+  <Image class="portrait" src={portrait} alt="Ayman Sayed" width={520} height={630} fit="cover" position="center" format="webp" quality={85} loading="eager" fetchpriority="high" widths={[260, 520]} sizes="(max-width: 600px) 132px, (max-width: 760px) 180px, 260px" />
+</section>

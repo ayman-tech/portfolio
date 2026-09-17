@@ -1,0 +1,10 @@
+---
+import type { Project } from '../data/portfolio';
+import Icon from './Icon.astro';
+interface Props { project: Project; featured?: boolean }
+const { project, featured = false } = Astro.props;
+---
+<div class="project-links">
+  {project.status === 'Live' && project.product_link && <a href={project.product_link} target="_blank" rel="noopener noreferrer" aria-label={`Launch ${project.name} (opens in a new tab)`}>Launch App <Icon name="arrow" size={17} /></a>}
+  {project.link && <a class:list={{ 'code-link': featured }} href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} on GitHub (opens in a new tab)`}>{featured && <Icon name="github" size={18} />}{featured ? 'GitHub' : 'View on GitHub'}{!featured && <Icon name="external" size={17} />}</a>}
+</div>

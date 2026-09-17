@@ -1,0 +1,16 @@
+---
+import { EDUCATION } from '../data/portfolio';
+---
+<section id="education" class="section" aria-labelledby="education-title">
+  <div class="section-heading"><h2 id="education-title">Education</h2><p>My academic background.</p></div>
+  <div class="timeline">
+    {EDUCATION.map(education => <article class="timeline-entry">
+      <p class="entry-date">{education.period}</p>
+      <div class="entry-content">
+        <h3>{education.degree}</h3>
+        <p class="entry-role">{education.school}</p>
+        <p class="courses"><span>Coursework</span>{education.courses.join(' · ')}</p>
+      </div>
+    </article>)}
+  </div>
+</section>

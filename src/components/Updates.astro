@@ -1,0 +1,22 @@
+---
+import { UPDATES } from '../data/updates';
+import { formatUpdateDate, validateUpdates } from '../lib/updates';
+import type { Update } from '../lib/updates';
+import Icon from './Icon.astro';
+interface Props { updates?: Update[] }
+const updates = validateUpdates(Astro.props.updates ?? UPDATES);
+---
+<section id="updates" class="updates-section section" aria-labelledby="updates-title">
+  <h2 id="updates-title">Updates</h2>
+  {updates.length ? <ol class="updates-list">
+    {updates.map(update => <li class="update-row">
+      <div class="update-date">
+        {update.date ? <time datetime={update.date}>{formatUpdateDate(update.date)}</time> : <span class="ongoing"><span class="status-dot"></span>Ongoing</span>}
+      </div>
+      <div class="update-copy">
+        <h3>{update.link ? <a href={update.link} target="_blank" rel="noopener noreferrer">{update.title}<Icon name="external" size={18} /><span class="sr-only"> (opens in a new tab)</span></a> : update.title}</h3>
+        {update.description && <p>{update.description}</p>}
+      </div>
+    </li>)}
+  </ol> : <p class="empty-updates">No updates to share just yet.</p>}
+</section>

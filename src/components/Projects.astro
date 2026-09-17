@@ -1,0 +1,24 @@
+---
+import { PROJECTS } from '../data/portfolio';
+import ProjectLinks from './ProjectLinks.astro';
+const featured = PROJECTS.filter(project => project.status === 'Live');
+const other = PROJECTS.filter(project => project.status !== 'Live');
+---
+<section id="projects" class="section projects-section" aria-labelledby="projects-title">
+  <div class="section-heading"><h2 id="projects-title">Featured Projects</h2><p>Selected projects exploring real-world applications of machine learning and AI.</p></div>
+  <div class="featured-projects">
+    {featured.map(project => <article class="featured-project" data-project={project.name}>
+      <div class="project-heading"><h3>{project.name}</h3><span class="live-status"><span class="status-dot"></span>{project.status}</span></div>
+      <p class="project-description">{project.description}</p>
+      <ul class="tags" aria-label={`${project.name} technologies`}>{project.tech.map(tech => <li>{tech}</li>)}</ul>
+      <ProjectLinks project={project} featured />
+    </article>)}
+  </div>
+  <div class="other-projects">
+    {other.map(project => <article class="project-row" data-project={project.name}>
+      <div class="project-title"><h3>{project.name}</h3><span class="project-status">{project.status}</span></div>
+      <div class="project-detail"><p>{project.description}</p><ul class="tags" aria-label={`${project.name} technologies`}>{project.tech.map(tech => <li>{tech}</li>)}</ul></div>
+      <ProjectLinks project={project} />
+    </article>)}
+  </div>
+</section>

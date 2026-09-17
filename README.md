@@ -1,166 +1,88 @@
-# 🚀 Ayman AI Portfolio
+# Ayman Sayed — Portfolio
 
-A modern, responsive personal portfolio website built with **NiceGUI** and **Tailwind CSS**, showcasing my experience, projects, and skills as an AI/ML Engineer.
+A fast, static portfolio built with **Astro, TypeScript, and CSS**, ready for GitHub Pages at **https://aymanai.com**. Includes projects, experience, education, skills, personal updates, and a persistent dark/light theme. No Python server or external services are required.
 
-🌐 **Live:** [aymanai.com](https://aymanai.com)
+## Develop locally
 
----
+Use Node.js 24 (`nvm use` if you use nvm).
 
-## ✨ Features
-
-- 🌙 **Dark mode by default** with manual light/dark toggle
-- 📱 **Fully responsive** design using Tailwind CSS
-- ⚡ **Single-page layout** with smooth navigation
-- 🧠 **AI/ML focused** — highlights experience, projects, and technical skills
-- 🔗 **Social links** — GitHub, LinkedIn, email, and more
-- 🐍 **Pure Python** — no HTML/JS templates needed
-
----
-
-## 🛠️ Tech Stack
-
-| Layer        | Technology                    |
-| ------------ | ----------------------------- |
-| 🖥️ Frontend | NiceGUI, Tailwind CSS, Quasar |
-| 🐍 Backend   | Python 3.12+                  |
-| 📦 Packages  | `uv`                          |
-| 🚀 Hosting   | GCP Compute Engine + Nginx    |
-| 🔒 SSL       | Let's Encrypt (Certbot)       |
-
----
-
-## 📸 Preview
-
-![Portfolio Screenshot](https://img.shields.io/badge/status-live-brightgreen?style=for-the-badge)
-
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Python 3.12+
-- [`uv`](https://docs.astral.sh/uv/)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/portfolio.git
-cd portfolio
-
-# Install dependencies & create venv automatically
-uv sync
+```sh
+npm ci
+npm run dev
 ```
 
-### ▶️ Run Locally
+Open http://localhost:4321. To check the production output:
 
-```bash
-uv run python main.py
+```sh
+npm run check
+npm test
+npm run build
+npm run preview
 ```
 
-Visit 👉 [http://localhost:8080](http://localhost:8080)
+The deployable website is generated in `dist/`. The repository's source files are not the deployment artifact.
 
----
+## Edit your content
 
-## 🐳 Docker
+- **Personal updates:** `src/data/updates.ts`
+- **Profile, projects, experience, education, skills:** `src/data/portfolio.ts`
+- **Portrait:** `src/assets/profile.png` (Astro creates optimized WebP versions automatically)
+- **Colors, spacing, and responsive layout:** `src/styles/global.css`
 
-### Build & Run
+### Add an update
 
-```bash
-docker build -t portfolio .
-docker run -p 8080:8080 portfolio
+Add an object to the top of the `UPDATES` array. Updates appear in the order you write them. The date is the **event or publication date**, so future dates are welcome and render immediately. No scheduling service is needed.
+
+Example entries below are templates only; replace all example text, dates, and URLs with real details before publishing:
+
+```ts
+export const UPDATES: Update[] = [
+  {
+    date: '2027-01-15',
+    title: 'Attending [conference name]',
+    description: 'I’ll be attending [conference] in [location].',
+    link: 'https://example.com/conference',
+  },
+  {
+    date: '2027-02-10',
+    title: '[Paper title] will be published in [venue]',
+    link: 'https://example.com/paper',
+  },
+  {
+    title: 'Reinforcement learning for multi-year ENSO events',
+    description: 'Working on a reinforcement learning project to drive climate modes toward more multi-year El Niño or La Niña events.',
+  },
+];
 ```
 
----
+Only `title` is required. Omit `date` for ongoing work, which displays **Ongoing**. `description` and `link` are optional. Use real calendar dates in `YYYY-MM-DD` format and complete `https://` or `http://` links; invalid entries produce a clear build error. Dates display consistently across time zones.
 
-## ☁️ Deployment (GCP Compute Engine)
+Use an empty array (`export const UPDATES: Update[] = [];`) to display a quiet empty state. Entries remain visible until edited or removed. There is no admin login: edit the file locally or in GitHub, commit, and push to `master` to publish through the workflow.
 
+The existing `ayman_resume.txt` is retained as a source document and is not published as a download.
 
-### 1. Clone & install
+## Deploy on GitHub Pages
 
-```bash
-# Install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
+The workflow in `.github/workflows/deploy.yml` checks, tests, builds, and uploads the site. Pull requests are checked without deploying. Pushes to **master** and manual runs on master deploy to the `github-pages` environment.
 
-git clone https://github.com/YOUR_USERNAME/portfolio.git
-cd portfolio
-uv sync
-```
+1. Push this repository to `ayman-tech/portfolio`, including `package-lock.json`.
+2. In **Settings → Pages → Build and deployment**, select **GitHub Actions**.
+3. Set the **Custom domain** to `aymanai.com` and save it. The Astro configuration uses this domain with no `/portfolio` prefix. A `CNAME` file is not required for this Actions-based deployment; the Pages setting controls the domain.
+4. Verify ownership of `aymanai.com` in your GitHub account's Pages settings using the TXT record GitHub provides.
+5. At your DNS provider, point the apex (`@`) at GitHub Pages using an ALIAS/ANAME to `ayman-tech.github.io` if supported, or GitHub's documented A records:
 
+   | Type | Host | Value |
+   | --- | --- | --- |
+   | A | @ | 185.199.108.153 |
+   | A | @ | 185.199.109.153 |
+   | A | @ | 185.199.110.153 |
+   | A | @ | 185.199.111.153 |
+   | CNAME | www | ayman-tech.github.io |
 
-### 2. Configure Nginx reverse proxy
+   Replace conflicting apex/`www` records from the old host, including any old AAAA records. Preserve records for your other services, including `triage.aymanai.com`, `deeprag.aymanai.com`, and email. If using IPv6, use GitHub's current documented AAAA records.
+6. Run **Actions → Deploy portfolio to GitHub Pages → Run workflow**, or push to master. Once GitHub's DNS check and certificate provisioning succeed, enable **Enforce HTTPS**.
+7. Verify https://aymanai.com on desktop and mobile, including the theme toggle, navigation, portrait, updates, and project links. Keep the old host available until the domain migration is verified.
 
-```bash
-sudo nano /etc/nginx/sites-available/aymanai.com
-```
+DNS and GitHub repository settings are not changed by editing these files. To roll back a website change, revert the relevant commit and push again. To roll back hosting, restore the previous DNS records while the old server is still available.
 
-```nginx
-server {
-    listen 80;
-    server_name aymanai.com www.aymanai.com;
-
-    location / {
-        proxy_pass http://127.0.0.1:8080;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_read_timeout 86400;
-    }
-}
-```
-
-```bash
-sudo ln -s /etc/nginx/sites-available/aymanai.com /etc/nginx/sites-enabled/
-sudo rm /etc/nginx/sites-enabled/default
-sudo nginx -t
-sudo systemctl restart nginx
-```
-
-### 3. Enable HTTPS 🔒
-
-```bash
-sudo certbot --nginx -d aymanai.com -d www.aymanai.com
-```
-
-### 6️⃣ DNS Configuration
-
-Point your domain to the instance's external IP in domain settings
-
----
-
-## 🧰 Useful Commands
-
-| Action           | Command                                                          |
-| ---------------- | ---------------------------------------------------------------- |
-| 📋 View logs     | `sudo journalctl -u portfolio -f`                                |
-| 🔄 Restart app   | `sudo systemctl restart portfolio`                               |
-| 🔄 Restart nginx | `sudo systemctl restart nginx`                                   |
-| 📊 Check status  | `sudo systemctl status portfolio`                                |
-| ⬆️ Pull updates  | `cd ~/portfolio && git pull && sudo systemctl restart portfolio` |
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 🤝 Contact
-
-- 🌐 Website: [aymanai.com](https://aymanai.com)
-- 💼 LinkedIn: [Ayman's LinkedIn](https://linkedin.com/in/YOUR_PROFILE)
-- 🐙 GitHub: [Ayman's GitHub](https://github.com/YOUR_USERNAME)
-- 📧 Email: hello@aymanai.com
-
----
-
-<p align="center">
-  Made with 🐍 Python & ❤️ by Ayman. Copyright © Ayman Sayed.
-</p>
+References: [Astro GitHub Pages deployment](https://docs.astro.build/en/guides/deploy/github/), [GitHub custom domain configuration](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site), [domain verification](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages).
